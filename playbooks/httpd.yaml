@@ -1,0 +1,17 @@
+---
+- hosts: first
+  become: true
+  tasks:
+    - name: Install Apache (httpd)
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+
+    - name: Start and enable Apache service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Create a web page
+      ansible.builtin.shell: echo "Welcome to my world" | sudo tee /var/www/html/index.html

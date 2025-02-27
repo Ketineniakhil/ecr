@@ -1,0 +1,8 @@
+---
+- hosts: first
+  vars_files:
+    - var.yaml
+  tasks:
+    - name: Print output
+      ansible.builtin.debug:
+        msg: "{{ variable1 }}"

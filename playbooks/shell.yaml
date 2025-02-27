@@ -1,0 +1,10 @@
+---
+- hosts: qa
+  tasks:
+    - name: Run shell command
+      ansible.builtin.shell: uname
+      register: uname_result
+
+    - name: Print output
+      ansible.builtin.debug:
+        msg: "{{ uname_result.stdout }}"

@@ -1,4 +1,17 @@
 [ec2]
-44.201.126.238
-18.234.167.30
-18.206.54.180
+dev1 ansible_host=44.201.126.238
+dev2 ansible_host=18.234.167.30
+dev3 ansible_host=18.206.54.180
+
+[first]
+dev1
+
+[qa]
+dev2
+
+[group:children]
+first
+qa
+
+[devsubset]
+dev[1:3]
